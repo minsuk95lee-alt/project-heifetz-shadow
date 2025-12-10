@@ -14,7 +14,7 @@ To validate the model structure, a pilot test was conducted with a purposive sam
     * `V_Pitch`: Vibrato intensity (F0 Standard Deviation via pYIN)
     * `V_Timbre`: Tonal brightness (Spectral Centroid)
     * `V_Rhythm`: Rhythmic flexibility (Inter-Beat Interval SD)
-* **Statistical Modeling:** Implemented a **Dynamic Factor Model (DFM)** using `statsmodels`.
+* **Statistical Modeling:** Implemented a **Dynamic Factor Model (DFM)** within a State-Space Framework using `statsmodels` (leveraging the Kalman Filter for likelihood estimation).
     * **Auto-Selection Logic:** The algorithm compares Model A ($k=1$) and Model B ($k=2$) via AIC to objectively determine the optimal structure.
 
 ## 3. Preliminary Results (N=4)
