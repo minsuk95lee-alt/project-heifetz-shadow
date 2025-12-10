@@ -29,5 +29,9 @@ The following libraries were utilized to implement the research pipeline:
 * **Econometrics:** Statsmodels (Kalman Filter & Dynamic Factor Models)
 * **Data Management:** Pandas & NumPy
 
+
+## 5. Current Limitations
+Due to the small sample size (N=4) in this pilot phase, the Hessian matrix may be near-singular. The full-scale research will utilize the RCM archive (N>100) to ensure statistical robustness and parameter stability.
+
 ---
 *Author: Minsuk Lee (MSc Candidate, Royal College of Music; BA, University of Cambridge)*
