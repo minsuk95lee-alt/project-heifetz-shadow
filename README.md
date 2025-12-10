@@ -7,6 +7,9 @@
 ## 1. Overview
 This project aims to quantify the "Thesis-Antithesis" evolution in 20th-century violin performance (e.g., Heifetz vs. Szeryng) by bridging audio signal processing with time-series econometrics. The Python prototype hosted here was developed to test the feasibility of this interdisciplinary framework.
 
+![Stylistic Evolution Hypothesis](figure2_decay.png)
+*Figure 1: Hypothetical Visualization of Stylistic Transmission. The model aims to quantify the 'Stylistic Gap' and convergence rate (ϕ) between the master (Red) and the student (Blue).*
+
 ## 2. Methodology (Pilot Implementation)
 To validate the model structure, a pilot test was conducted with a purposive sample of 4 seminal recordings (N=4) of Bach's *Chaconne*.
 
@@ -16,6 +19,9 @@ To validate the model structure, a pilot test was conducted with a purposive sam
     * `V_Rhythm`: Rhythmic flexibility (Inter-Beat Interval SD)
 * **Statistical Modeling:** Implemented a **Dynamic Factor Model (DFM)** within a State-Space Framework using `statsmodels` (leveraging the Kalman Filter for likelihood estimation).
     * **Auto-Selection Logic:** The algorithm compares Model A ($k=1$) and Model B ($k=2$) via AIC to objectively determine the optimal structure.
+ 
+  ![State Space Model Diagram](figure1_structure.png)
+*Figure 2: The Transmission Mechanism. This schematic corresponds to the `statsmodels.tsa.DynamicFactor` implementation in the code, where α_t represents the unobservable stylistic state derived from the observed audio features (Y_t).*
 
 ## 3. Preliminary Results (N=4)
 The prototype successfully processed the audio data, and the algorithm **autonomously selected the 2-Factor Model** as the optimal structure.
