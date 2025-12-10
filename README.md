@@ -7,7 +7,7 @@
 ## 1. Overview
 This project aims to quantify the "Thesis-Antithesis" evolution in 20th-century violin performance (e.g., Heifetz vs. Szeryng) by bridging audio signal processing with time-series econometrics. The Python prototype hosted here was developed to test the feasibility of this interdisciplinary framework.
 
-
+![Stylistic Evolution Hypothesis](figure2_decay.png)
 *Figure 1: Hypothetical Visualization of Stylistic Transmission. The graph illustrates the expected output of the State-Space analysis. Note how the 1st Generation's trajectory (Blue) initially converges with the source's (Red) but eventually diverges, a pattern echoed by the 2nd Generation (Green), illustrating the decay of influence over time.*
 
 ## 2. Methodology (Pilot Implementation)
