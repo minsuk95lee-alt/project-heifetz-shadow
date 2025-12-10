@@ -8,7 +8,7 @@
 This project aims to quantify the "Thesis-Antithesis" evolution in 20th-century violin performance (e.g., Heifetz vs. Szeryng) by bridging audio signal processing with time-series econometrics. The Python prototype hosted here was developed to test the feasibility of this interdisciplinary framework.
 
 ![Stylistic Evolution Hypothesis](figure2_decay.png)
-*Figure 1: Hypothetical Visualization of Stylistic Transmission. The model aims to quantify the 'Stylistic Gap' and convergence rate (ϕ) between the master (Red) and the student (Blue).*
+*Figure 1: Hypothetical Visualization of Stylistic Transmission. The graph illustrates the expected output of the State-Space analysis. Note how the 1st Generation's trajectory (Blue) initially converges with the source's (Red) but eventually diverges, a pattern echoed by the 2nd Generation (Green), illustrating the decay of influence over time.*
 
 ## 2. Methodology (Pilot Implementation)
 To validate the model structure, a pilot test was conducted with a purposive sample of 4 seminal recordings (N=4) of Bach's *Chaconne*.
@@ -21,7 +21,7 @@ To validate the model structure, a pilot test was conducted with a purposive sam
     * **Auto-Selection Logic:** The algorithm compares Model A ($k=1$) and Model B ($k=2$) via AIC to objectively determine the optimal structure.
  
   ![State Space Model Diagram](figure1_structure.png)
-*Figure 2: The Transmission Mechanism. This schematic corresponds to the `statsmodels.tsa.DynamicFactor` implementation in the code, where α_t represents the unobservable stylistic state derived from the observed audio features (Y_t).*
+*Figure 2: The Transmission Mechanism. This diagram provides a schematic representation of the proposed State-Space Model. It translates the statistical parameters into their musicological equivalents, illustrating how the **Heifetz Style** is transmitted, decayed, and observed over time. It illustrates the core hypothesis: The unobservable **Stylistic State** (α) is passed down with a decay factor (ϕ), while each recording data (**Y**) is a noisy snapshot of that style. `η_t` represents the violinist's new creative input. This schematic corresponds to the `statsmodels.tsa.DynamicFactor` implementation in the code, where `α_t` maps to the unobservable stylistic state derived from the observed audio features (`Y_t`) extracted from the recordings.*
 
 ## 3. Preliminary Results (N=4)
 The prototype successfully processed the audio data, and the algorithm **autonomously selected the 2-Factor Model** as the optimal structure.
