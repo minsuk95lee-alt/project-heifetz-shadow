@@ -36,8 +36,19 @@ The following libraries were utilized to implement the research pipeline:
 * **Data Management:** Pandas & NumPy
 
 
-## 5. Current Limitations
-Due to the small sample size (N=4) in this pilot phase, the Hessian matrix may be near-singular. The full-scale research will utilize the RCM archive (N>100) to ensure statistical robustness and parameter stability.
+## 5. Current Limitations & Future Roadmap
+This pilot serves as a **Proof of Concept** to validate the computational pipeline. The following methodological limitations are acknowledged and will be rigorously addressed in the full dissertation:
+
+1.  **Sample Size & Stability:**
+    Due to the pilot sample size ($N=4$), the Hessian matrix is currently near-singular. The full-scale research will utilize the RCM archive ($N \approx 50\text{--}100$) to ensure statistical robustness and parameter convergence.
+
+2.  **Technological Bias in Timbre (The "Vintage" Effect):**
+    The current `V_Timbre` (Spectral Centroid) metric is confounded by the bandwidth limitations of historical recording equipment.
+    * **Solution:** The final methodology will incorporate **High-Cut Filters (Low-Pass)** on modern recordings to normalize the frequency response across all eras, ensuring that the model measures *stylistic brightness* rather than *fidelity improvements*.
+
+3.  **Time-Step Irregularity:**
+    The standard `DynamicFactor` model assumes fixed time intervals (discrete steps). However, historical recordings occur at irregular gaps (e.g., 15 years vs. 30 years).
+    * **Solution:** The full study will refine the State-Space formulation to either account for **variable time-deltas ($\Delta t$)** within a continuous-time framework or redefine the time unit ($t$) as discrete **"Pedagogical Generations"** to ensure the Transition Matrix ($T$) is accurately estimated.
 
 ---
 *Author: Minsuk Lee (MSc Candidate, Royal College of Music; BA, University of Cambridge)*
