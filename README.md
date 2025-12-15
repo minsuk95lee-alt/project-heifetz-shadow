@@ -42,9 +42,16 @@ This pilot serves as a **Proof of Concept** to validate the computational pipeli
 1.  **Sample Size & Stability:**
     Due to the pilot sample size ($N=4$), the Hessian matrix is currently near-singular. The full-scale research will utilize the RCM archive ($N \approx 50\text{--}100$) to ensure statistical robustness and parameter convergence.
 
-2.  **Technological Bias in Timbre (The "Vintage" Effect):**
-    The current `V_Timbre` (Spectral Centroid) metric is confounded by the bandwidth limitations of historical recording equipment.
-    * **Solution:** The final methodology will incorporate **High-Cut Filters (Low-Pass)** on modern recordings to normalize the frequency response across all eras, ensuring that the model measures *stylistic brightness* rather than *fidelity improvements*.
+2. Technological Bias in Timbre (The "Vintage" Effect)
+The current pilot model utilizes standard feature extraction and homoskedastic error assumptions. However, historical recordings introduce two distinct statistical artifacts that must be decoupled in the full dissertation:
+
+* **A. Systematic Bias (Mean Shift / $\mu_t$):**
+  Due to the limited bandwidth of early microphones, older recordings exhibit artificially low Spectral Centroid values.
+  * **Planned Solution (Pre-processing):** I will apply **High-Cut (Low-Pass) Filters** to modern recordings to equalize the frequency response baseline. This physically removes the bias, ensuring that the mean differences reflect *stylistic choices* rather than *fidelity limits*.
+
+* **B. Heteroskedasticity (Variance Instability / $\sigma_t^2$):**
+  The current pilot assumes constant measurement error variance. However, historical recordings contain fluctuating noise floors (hiss/crackles), making them less reliable observations.
+  * **Planned Solution (Model Specification):** The final State-Space Model will incorporate **Regime-Dependent Noise**, assigning distinct variance parameters ($\sigma_{vintage}^2$ vs. $\sigma_{modern}^2$) to each era. This statistically downweights noisy observations without discarding them.
 
 3.  **Time-Step Irregularity:**
     The standard `DynamicFactor` model assumes fixed time intervals (discrete steps). However, historical recordings occur at irregular gaps (e.g., 15 years vs. 30 years).
